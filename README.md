@@ -91,7 +91,7 @@ I've built a Helm chart and have included it in the `helm` directory within this
 ### Troubleshooting & Support
 
 Q: I can't connect to or find my server!
-A: You have a networking issue or misconfiguration, this a fault with the image.
+A: You have a networking issue or misconfiguration, this is not a fault with the image.
 
 Q: Why does the image always download the game files?
 A: The game files are not persisted, only the save game data. The image will check if the data is present when started, if it's not there it will download it, if it needs updated it will download it.
