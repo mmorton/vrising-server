@@ -35,7 +35,7 @@ podman run \
 ### Docker
 
 ```bash
-Docker run \
+docker run \
   --detach \
   --name vrising-server \
   --mount type=volume,source=vrising-persistent-data,target=/home/steam/vrising/save-data \
@@ -90,16 +90,16 @@ I've built a Helm chart and have included it in the `helm` directory within this
 
 ### Troubleshooting & Support
 
-Q: I can't connect to or find my server!
+Q: I can't connect to or find my server! <br>
 A: You have a networking issue or misconfiguration, this is not a fault with the image.
 
-Q: Why does the image always download the game files?
+Q: Why does the image always download the game files? <br>
 A: The game files are not persisted, only the save game data. The image will check if the data is present when started, if it's not there it will download it, if it needs updated it will download it.
 
-Q: How do I update the server?
+Q: How do I update the server? <br>
 A: Either destroy the container and recreate it (without destroying the volume of course) or stop and start the container.
 
-Q: Why does my container crash or fail to start?
+Q: Why does my container crash or fail to start? <br>
 A: Could be many reasons, none of them is the fault of this image. If it cannot reach out to steam to pull the server files, it will crash. If wine exits for any reason it will kill the container. Double check all your settings, your container host configurations and packages, etc. You know, troubleshoot.
 
 I am providing this as is. I seriously do not have time to help with every issue. Feel free to fork or do whatever you want with the code here.
