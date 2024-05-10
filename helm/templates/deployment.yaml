@@ -46,6 +46,16 @@ spec:
           value: {{ .Values.env.lowerFPSWhenEmpty | squote }}
         - name: SECURE
           value: {{ .Values.env.secure | squote }}
+        - name: EOS_LIST
+          value: {{ .Values.env.eosList | squote }}
+        - name: STEAM_LIST
+          value: {{ .Values.env.steamList | squote }}
+        - name: GAME_PRESET
+          value: {{ .Values.env.gamePreset | squote }}
+        - name: DIFFICULTY
+          value: {{ .Values.env.difficulty | squote }}
+        - name: SAVE_NAME
+          value: {{ .Values.env.saveName | squote }}
         ports:
         - name: game-port
           containerPort: {{ .Values.env.gamePort | int }}

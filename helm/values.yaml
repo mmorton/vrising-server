@@ -20,3 +20,8 @@ env:
   hideIpAddress: true
   lowerFPSWhenEmpty: true
   secure: true
+  eosList: true
+  steamList: false
+  gamePreset: "StandardPvP"
+  difficulty: "Difficulty_Normal"
+  saveName: "vrising_world"

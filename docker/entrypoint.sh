@@ -18,12 +18,15 @@ if [ $? != 0 ]; then
 fi
 
 # Redirect log file to stdout
+echo "$(timestamp) INFO: Linking log file to standard out"
 ln -sf /proc/1/fd/1 "${VRISING_PATH}/logs/VRisingServer.log"
 
 # Start xvfb 
+echo "$(timestamp) INFO: Starting X11 emulation"
 Xvfb :1 -screen 0 1024x768x16 &
 
 # Start VRising
+echo "$(timestamp) INFO: Launching V Rising"
 wine ${VRISING_PATH}/VRisingServer.exe \
     -batchmode \
     -nographics \
@@ -37,4 +40,9 @@ wine ${VRISING_PATH}/VRisingServer.exe \
     -hideIpAddress "${HIDE_IP}" \
     -lowerFPSWhenEmpty "${LOWER_FPS_EMPTY}" \
     -password "${SERVER_PASSWORD}" \
-    -secure "${SECURE}"
+    -secure "${SECURE}" \
+    -listOnEOS "${EOS_LIST}" \
+    -listOnSteam "${STEAM_LIST}" \
+    -preset "${GAME_PRESET}" \
+    -difficultyPreset "${DIFFICULTY}" \
+    -saveName "${SAVE_NAME}"
