@@ -65,7 +65,7 @@ spec:
           protocol: UDP
         volumeMounts:
         - name: data
-          mountPath: /home/steam/vrising/save-data
+          mountPath: /opt/steam/vrising/save-data
       volumes:
       - name: data
         persistentVolumeClaim:

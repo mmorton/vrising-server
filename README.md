@@ -32,7 +32,7 @@ Persistent storage should be mounted to /opt/steam/vrising/save-data
 podman run \
   --detach \
   --name vrising-server \
-  --mount type=volume,source=vrising-persistent-data,target=/home/steam/vrising/save-data \
+  --mount type=volume,source=vrising-persistent-data,target=/opt/steam/vrising/save-data \
   --publish 27015:27015/udp \
   --publish 27016:27016/udp \
   --env-file vars.env \
@@ -45,7 +45,7 @@ podman run \
 docker run \
   --detach \
   --name vrising-server \
-  --mount type=volume,source=vrising-persistent-data,target=/home/steam/vrising/save-data \
+  --mount type=volume,source=vrising-persistent-data,target=/opt/steam/vrising/save-data \
   --publish 27015:27015/udp \
   --publish 27016:27016/udp \
   --env-file vars.env \
