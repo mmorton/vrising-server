@@ -29,7 +29,7 @@ podman run \
   --publish 27015:27015/udp \
   --publish 27016:27016/udp \
   --env-file vars.env \
-  sknnr/vrising-dedicated-server:latest
+  docker.io/sknnr/vrising-dedicated-server:latest
 ```
 
 ### Docker
