@@ -7,13 +7,13 @@ timestamp () {
   date +"%Y-%m-%d %H:%M:%S,%3N"
 }
 
-# Install/Update Enshrouded
-echo "$(timestamp) INFO: Updating Enshrouded Dedicated Server"
+# Install/Update V Rising
+echo "$(timestamp) INFO: Updating V Rising Dedicated Server"
 steamcmd +@sSteamCmdForcePlatformType windows +force_install_dir "$VRISING_PATH" +login anonymous +app_update ${STEAM_APP_ID} validate +quit
 
 # Check that steamcmd was successful
 if [ $? != 0 ]; then
-    echo "$(timestamp) ERROR: steamcmd was unable to successfully initialize and update Enshrouded"
+    echo "$(timestamp) ERROR: steamcmd was unable to successfully initialize and update V Rising"
     exit 1
 fi
 

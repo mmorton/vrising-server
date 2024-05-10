@@ -72,7 +72,7 @@ services:
       - SERVER_NAME="VRising Containerized"
       - SERVER_PASSWORD="PleaseChangeMe"
       - GAME_PORT=27015
-      - QUERY_PORT=27015
+      - QUERY_PORT=27016
       - DESCRIPTION="A VRising Server"
       - BIND_ADDRESS=0.0.0.0
       - HIDE_IP=true
