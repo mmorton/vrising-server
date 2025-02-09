@@ -44,7 +44,7 @@ args=()
 
 # Start VRising
 echo "$(timestamp) INFO: Launching V Rising"
-echo wine ${VRISING_PATH}/VRisingServer.exe \
+wine ${VRISING_PATH}/VRisingServer.exe \
     -batchmode \
     -nographics \
     -persistentDataPath "${VRISING_PATH}/save-data" \
