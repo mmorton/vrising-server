@@ -25,24 +25,28 @@ ln -sf /proc/1/fd/1 "${VRISING_PATH}/logs/VRisingServer.log"
 echo "$(timestamp) INFO: Starting X11 emulation"
 Xvfb :1 -screen 0 1024x768x16 &
 
+args=()
+
+[ -n "$SERVER_NAME" ] && args+=(--serverName "$SERVER_NAME")
+[ -n "$DESCRIPTION" ] && args+=(--description "$DESCRIPTION")
+[ -n "$GAME_PORT" ] && args+=(--gamePort "$GAME_PORT")
+[ -n "$QUERY_PORT" ] && args+=(--queryPort "$QUERY_PORT")
+[ -n "$BIND_ADDRESS" ] && args+=(--bindAddress "$BIND_ADDRESS")
+[ -n "$HIDE_IP" ] && args+=(--hideIpAddress "$HIDE_IP")
+[ -n "$LOWER_FPS_EMPTY" ] && args+=(--lowerFPSWhenEmpty "$LOWER_FPS_EMPTY")
+[ -n "$PASSWORD" ] && args+=(--password "$PASSWORD")
+[ -n "$SECURE" ] && args+=(--secure "$SECURE")
+[ -n "$EOS_LIST" ] && args+=(--listOnEOS "$EOS_LIST")
+[ -n "$STEAM_LIST" ] && args+=(--listOnSteam "$STEAM_LIST")
+[ -n "$GAME_PRESET" ] && args+=(--preset "$GAME_PRESET")
+[ -n "$DIFFICULTY" ] && args+=(--difficultyPreset "$DIFFICULTY")
+[ -n "$SAVE_NAME" ] && args+=(--saveName "$SAVE_NAME")
+
 # Start VRising
 echo "$(timestamp) INFO: Launching V Rising"
-wine ${VRISING_PATH}/VRisingServer.exe \
+echo wine ${VRISING_PATH}/VRisingServer.exe \
     -batchmode \
     -nographics \
     -persistentDataPath "${VRISING_PATH}/save-data" \
     -logFile "${VRISING_PATH}/logs/VRisingServer.log" \
-    -serverName "${SERVER_NAME}" \
-    -description "${DESCRIPTION}" \
-    -gamePort "${GAME_PORT}" \
-    -queryPort "${QUERY_PORT}" \
-    -bindAddress "${BIND_ADDRESS}" \
-    -hideIpAddress "${HIDE_IP}" \
-    -lowerFPSWhenEmpty "${LOWER_FPS_EMPTY}" \
-    -password "${SERVER_PASSWORD}" \
-    -secure "${SECURE}" \
-    -listOnEOS "${EOS_LIST}" \
-    -listOnSteam "${STEAM_LIST}" \
-    -preset "${GAME_PRESET}" \
-    -difficultyPreset "${DIFFICULTY}" \
-    -saveName "${SAVE_NAME}"
+    "${args[@]}"
